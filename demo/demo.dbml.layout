@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="demo">
+  <DataContextMoniker Name="/demoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5ffe653d-96bf-438f-be3f-48e3477ca00b" absoluteBounds="2.75, 1.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/demoDataContext/bantin" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b803f16c-52e4-4be9-a620-c300bdccd539" absoluteBounds="2.7649999999999997, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f2390bcd-4fc1-4261-829d-417514e1a9a7" absoluteBounds="2.625, 3.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/demoDataContext/chitiet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="27f59834-1a7e-4b6b-855a-ffc684b4ff7e" absoluteBounds="2.6399999999999997, 4.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.6875 : 2.81899251302083); (3.6875 : 3.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/demoDataContext/bantin/bantin_chitiet" />
+      <nodes>
+        <classShapeMoniker Id="5ffe653d-96bf-438f-be3f-48e3477ca00b" />
+        <classShapeMoniker Id="f2390bcd-4fc1-4261-829d-417514e1a9a7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7553afc4-879c-4f1f-9793-dcf214b43f52" absoluteBounds="5.25, 2.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/demoDataContext/name" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56ec62c4-d178-43f3-809e-42d76ecdefdd" absoluteBounds="5.2650000000000006, 3.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8b20a1ea-ccb2-4b95-ab2e-ecc23c55e853" absoluteBounds="0.5, 3.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/demoDataContext/sanpham" />
+      <nestedChildShapes>
+        <elementListCompartment Id="619f4f17-1a58-466f-9f28-36a9bced5330" absoluteBounds="0.51500000000000012, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a9d22120-3576-458a-9f4b-0d957d954e96" absoluteBounds="0.5, 1.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/demoDataContext/danhmuc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2331f40-d7be-4f0e-8106-adf0c324dba6" absoluteBounds="0.51500000000000012, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 2.31899251302083); (1.5 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/demoDataContext/danhmuc/danhmuc_sanpham" />
+      <nodes>
+        <classShapeMoniker Id="a9d22120-3576-458a-9f4b-0d957d954e96" />
+        <classShapeMoniker Id="8b20a1ea-ccb2-4b95-ab2e-ecc23c55e853" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,21 @@
+﻿.admin_sp_form{
+    margin:10px 0 20px 15%;
+    max-width:500px;
+}
+.form_admin_sp {
+    margin: 0 0 10px 10px;
+    display:flex;
+    flex-wrap:wrap;
+}
+.admin_sp_form_dl{
+    display:flex;
+    flex-wrap:inherit;
+}
+.btn-admin_form{
+    margin:20px 20px 0 0;
+    width:70px;
+    height:50px;
+}
+.addnews{
+    margin-left:30px;
+}

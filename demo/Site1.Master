@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="demo.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>tai lieu </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+         <link rel="stylesheet" href="theme/main.css">
+        <link rel="stylesheet" href="theme/base.css">
+        <link rel="stylesheet" href="theme/fontawesome-free-5.15.3-web/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+                                       function back() {
+                                           window.history.go(-1);
+                                       }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <header>
+               <img src="theme/Capture.PNG" class="logo" alt="" srcset="">
+                
+               <div class="search">
+                   <asp:TextBox ID="txt_uses_search" CssClass="form" placeholder="Search....." runat="server"></asp:TextBox>
+                   
+                   <asp:Button ID="Button1" runat="server" Text="Tìm kiếm" OnClick="Button1_Click" />
+               </div>
+                
+               <div class="language">
+                   
+                   
+                   <asp:ImageButton ID="viet" ImageUrl="https://www.hust.edu.vn/hust-theme/images/vi.gif" CssClass="language_item" runat="server" OnClick="ImageButton1_Click" />
+                   <asp:ImageButton ID="eng" ImageUrl="https://www.hust.edu.vn/hust-theme/images/en.gif" CssClass="language_item" runat="server" OnClick="eng_Click" />
+                   
+                </div>
+            </header>
+            <nav>
+               <div class="menu">
+                  <ul class="menu_list">
+                    
+                             
+                      <li> <a href="home.aspx" class="menu_list_item_link"> Trang Chủ</a></li>
+                      <li> <a href="product.aspx" class="menu_list_item_link">Sản Phẩm </a></li>
+                      <li> <a href="news.aspx" class="menu_list_item_link"> Tin Tức</a></li>
+                      <li> <a href="help.aspx" class="menu_list_item_link"> Hỗ Trợ </a></li>
+                      <li> <a href="contact.aspx" class="menu_list_item_link"> Liên Hệ </a></li>
+                      <li> <a href="" class="menu_list_item_link"> </a></li>
+                        
+                      <%if ((Boolean)Session["login"] == false)
+                          {
+                                         %>
+
+                       <li> <a href="login.aspx" class="menu_list_item_link"> Đăng Nhập</a></li>
+                      <%}
+                         else
+                         {%>
+                      <li class="menu_list_item_link menu_list--has--block"> Bản Thân
+                          <div class="menu_uses">
+                          <ul class="uses_list">
+
+                    
+                                  <asp:Repeater ID="Rpuses" runat="server">
+                                      <ItemTemplate>
+                                       <li class="uses_name"> <%# Eval("email") %></li>
+                                      </ItemTemplate>
+                                  </asp:Repeater>
+
+               
+                              <li class="uses_name"> <a href="" class="uses_text"> Vip</a> </li>
+                               <li class="uses_name"> <a href="" class="uses_text"> Đổi mật khẩu</a></li>
+                               <li class="uses_name"> <a href="logout.aspx" class="uses_text"> Đăng xuất</a></li>
+                          </ul>
+                       </div>
+                      </li>
+                      <%} %>
+                      
+                           
+                     
+                  </ul>
+               </div>
+            </nav>
+            
+                    
+         
+                   
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="footer">
+                        <div class="footer_theme">
+                              <div class="footer_fist">
+                                  <h4 class="text_widget">
+                                    Tham gia với chúng tôi 
+                                  </h4>
+                                   <div class="footer_item_link">
+                                    <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-facebook-square"></i>
+                                       </a>
+                                       <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-twitter"></i>
+                                       </a>
+                                       <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-youtube"></i>
+                                       </a>
+                                    
+                                    
+                                </div>
+                              </div>
+                              <div class="footer_second">
+                                  <h4 class="text_widget">BẢN QUYỀN THUỘC VỀ HTMD</h4>
+                                  <h4 class="text_widget"> Số điện thoại : 0383112610</h4>
+                              </div>
+        
+                        </div>
+                        <div class="footer_bottom">
+                            <i class=" far fa-copyright"></i>
+                            <span>
+                                Copyright 2021-HTMD
+                            </span>
+                        </div>
+                    </footer>
+        </div>
+    </form>
+</body>
+</html>

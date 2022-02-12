@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="demo.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>tai lieu </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <header>
+               <img src="img/logo.png" alt="" srcset="">
+               <div class="search"> 
+                   <input class="form" placeholder="Search.....">
+                   <button> tìm kiếm </button>
+               </div>
+               <div class="language">
+                   
+                   <span class="language_heading"> ngôn ngữ :</span>
+                   <a href=""><img src="https://www.hust.edu.vn/hust-theme/images/vi.gif" alt="" srcset=""></a>
+                   <a href=""><img src="https://www.hust.edu.vn/hust-theme/images/en.gif" alt="" srcset=""></a>
+                </div>
+            </header>
+            <nav>
+               <div class="menu">
+                  <ul>
+                      <li> <a href="#"> Trang Chủ</a></li>
+                      <li> <a href="#"> Sản Phẩm</a></li>
+                      <li> <a href="index.html"> Tin Tức</a></li>
+                      <li> <a href="#"> Hỗ Trợ</a></li>
+                      <li> <a href="#"> Tải Xuống</a></li>
+                      <li> <a href="#"> Liên Hệ</a></li>
+                      <li> <a href="login.html"> Đăng Nhập</a></li>
+                  </ul>
+               </div>
+            </nav>
+            
+                    
+                
+                  
+                   
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="footer">
+                        <div class="footer_theme">
+                              <div class="footer_fist">
+                                  <h4 class="text_widget">
+                                    Tham gia với chúng tôi 
+                                  </h4>
+                                   <div class="footer_item_link">
+                                    <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-facebook-square"></i>
+                                       </a>
+                                       <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-twitter"></i>
+                                       </a>
+                                       <a href="" class="footer_item">
+                                        <i class="footer_icon fab fa-youtube"></i>
+                                       </a>
+                                    
+                                    
+                                </div>
+                              </div>
+                              <div class="footer_second">
+                                  <h4 class="text_widget">BẢN QUYỀN THUỘC VỀ TÀI LIỆU HỌC BÁCH KHOA</h4>
+                                  <h4 class="text_widget"> Số điện thoại : 0383112610</h4>
+                              </div>
+        
+                        </div>
+                        <div class="footer_bottom">
+                            <i class=" far fa-copyright"></i>
+                            <span>
+                                Copyright 2021-Tài liệu bách khoa
+                            </span>
+                        </div>
+                    </footer>
+        </div>
+    </form>
+</body>
+</html>

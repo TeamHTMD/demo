@@ -1,0 +1,131 @@
+﻿:root {
+    --white: #fff;
+    --black: #000;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1 rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px #333 solid;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.grid__column2-4 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 20%;
+}
+
+.grid__column2 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 16.6667%;
+}
+.grid__row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+   max-height:600px;
+   overflow:scroll;
+   
+}
+.grid__column10 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 82.3333%;
+    
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-body {
+    width: 600px;
+    position: relative;
+    background-color: white;
+    margin: auto;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.pagination_item {
+    margin: 0 12px;
+}
+
+.pagination_item-active .pagination_item_link {
+    color: white;
+    background-color: crimson;
+}
+
+.pagination_item_link {
+    display: block;
+    text-decoration: none;
+    font-size: 2.5 rem;
+    font-weight: 300;
+    color: #939393;
+    min-width: 40px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 2px;
+}
+
+.footer {
+    background-color: #939393;
+}
+.language_item{
+    margin:5px 5px;
+}
+.grid_home4 {
+    position:static;
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 32%;
+}
+
+.grid_home8 {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 66.667%;
+    max-height:600px;
+    overflow:auto;
+}

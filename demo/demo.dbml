@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="uses" Class="demoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=QUANGMINH;Initial Catalog=uses;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="usesConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.bantin" Member="bantins">
+    <Type Name="bantin">
+      <Column Name="idbantin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bantin" Member="bantin1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="bantin_chitiet" Member="chitiets" ThisKey="idbantin" OtherKey="idbantin" Type="chitiet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.chitiet" Member="chitiets">
+    <Type Name="chitiet">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="bantin_chitiet" Member="bantin" ThisKey="idbantin" OtherKey="idbantin" Type="bantin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.name" Member="names">
+    <Type Name="name">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sanpham" Member="sanphams">
+    <Type Name="sanpham">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sanpham" Member="sanpham1" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="danhmuc_sanpham" Member="danhmuc" ThisKey="iddanhmuc" OtherKey="iddanhmuc" Type="danhmuc" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.danhmuc" Member="danhmucs">
+    <Type Name="danhmuc">
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="danhmuc" Member="danhmuc1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="danhmuc_sanpham" Member="sanphams" ThisKey="iddanhmuc" OtherKey="iddanhmuc" Type="sanpham" />
+    </Type>
+  </Table>
+  <Function Name="dbo.bantin_selectall" Method="bantin_selectall">
+    <ElementType Name="bantin_selectallResult">
+      <Column Name="idbantin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bantin" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.bantin_selectid" Method="bantin_selectid">
+    <Parameter Name="idbantin" Type="System.Int32" DbType="Int" />
+    <ElementType Name="bantin_selectidResult">
+      <Column Name="idbantin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bantin" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.checkad" Method="checkad">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="checkadResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.danhmuc_selectall" Method="danhmuc_selectall">
+    <ElementType Name="danhmuc_selectallResult">
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="danhmuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.danhmuc_selectid" Method="danhmuc_selectid">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="danhmuc_selectidResult">
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="danhmuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.menu_selectall" Method="menu_selectall">
+    <ElementType Name="menu_selectallResult">
+      <Column Name="idmenu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tenviet" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="teneng" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="link" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.name_checkad" Method="name_checkad">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="name_checkadResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.name_download" Method="name_download">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="download" Type="System.Int32" DbType="Int" />
+    <ElementType Name="name_downloadResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.name_insertinto" Method="name_insertinto">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="passwors" Type="System.String" DbType="Char(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.name_search" Method="name_search">
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="Char(10)" />
+    <ElementType Name="name_searchResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.name_selectall" Method="name_selectall">
+    <ElementType Name="name_selectallResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.name_selectname" Method="name_selectname">
+    <Parameter Name="name" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="name_selectnameResult">
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="downloaded" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="adm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sabpham_luottai" Method="sabpham_luottai">
+    <Parameter Name="idsanpham" Type="System.Int32" DbType="Int" />
+    <Parameter Name="luottai" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sanpham_download" Method="sanpham_download">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="download" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sanpham_home" Method="sanpham_home">
+    <ElementType Name="sanpham_homeResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sanpham_insert" Method="sanpham_insert">
+    <Parameter Name="sanpham" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="noidung" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="download" Type="System.Int32" DbType="Int" />
+    <Parameter Name="iddanhmuc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="linktai" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sanpham_selectall" Method="sanpham_selectall">
+    <ElementType Name="sanpham_selectallResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sanpham_selectid" Method="sanpham_selectid">
+    <Parameter Name="idsanpham" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sanpham_selectidResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sanpham_selectiddanhmuc" Method="sanpham_selectiddanhmuc">
+    <Parameter Name="iddanhmuc" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sanpham_selectiddanhmucResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sanpham_updatelt" Method="sanpham_updatelt">
+    <Parameter Name="idsanpham" Type="System.Int32" DbType="Int" />
+    <Parameter Name="luottai" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sanpham_xephang" Method="sanpham_xephang">
+    <ElementType Name="sanpham_xephangResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.chitiet_insertinto" Method="chitiet_insertinto">
+    <Parameter Name="idbantin" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tieude" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="gioithieu" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="noidung" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ngaydang" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="linkart" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.chitiet_home" Method="chitiet_home">
+    <ElementType Name="chitiet_homeResult">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.chitiet_selectid" Method="chitiet_selectid">
+    <Parameter Name="idchitiet" Type="System.Int32" DbType="Int" />
+    <ElementType Name="chitiet_selectidResult">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.chitiet_selectidbantin" Method="chitiet_selectidbantin">
+    <Parameter Name="idbantin" Type="System.Int32" DbType="Int" />
+    <ElementType Name="chitiet_selectidbantinResult">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.chitiet_selectnew" Method="chitiet_selectnew">
+    <ElementType Name="chitiet_selectnewResult">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.chitiet_selectrandom" Method="chitiet_selectrandom">
+    <Parameter Name="idbantin" Type="System.Int32" DbType="Int" />
+    <ElementType Name="chitiet_selectrandomResult">
+      <Column Name="idchitiet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tieude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="gioithieu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ngaydang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idbantin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linkart" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sanpham_searchbyname" Method="sanpham_searchbyname">
+    <Parameter Name="sanpham" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="sanpham_searchbynameResult">
+      <Column Name="idsanpham" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sanpham" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="rate" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="luottai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="download" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iddanhmuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="linktai" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
